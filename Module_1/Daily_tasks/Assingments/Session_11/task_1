@@ -1,0 +1,16 @@
+import 'dart:io';
+
+void main()
+{
+  print("Enter your age:");
+  var age=int.parse(stdin.readLineSync().toString());
+
+  if(age<22)
+    {
+      print("Eligible for student discount");
+    }
+  else
+    {
+      print("No discount available");
+    }
+}
