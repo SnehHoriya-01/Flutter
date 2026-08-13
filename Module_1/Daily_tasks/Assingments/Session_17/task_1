@@ -1,0 +1,17 @@
+import 'dart:io';
+
+bool isValidUsername(String uname)
+{
+  if(uname.length>=6 && !uname.contains(" "))
+  {
+    return true;
+  }
+  else
+    {
+      return false;
+    }
+}
+void main()
+{
+  print(isValidUsername("sneh_rajgor"));
+}
