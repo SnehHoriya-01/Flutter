@@ -1,0 +1,34 @@
+Flutter apps, three features that would be suitable responsibilities for a junior Flutter developer during their first three months are:
+
+1. Login/Registration Screens
+
+A junior developer could build or maintain:
+
+Login screen
+Registration screen
+Form validation
+Password fields
+Error messages
+Connecting the screen to a login API
+2. List and Detail Screens
+
+A junior developer could work on:
+
+Displaying a list of items using Flutter widgets
+Fetching data from an API
+Creating cards/list items
+Opening a detail page when an item is selected
+Handling loading and empty states
+3. Profile Editing
+
+A junior developer could implement:
+
+User profile screen
+Edit profile form
+Updating name, email, or other information
+Form validation
+Sending updated information to the backend API
+Testing the feature and fixing UI bugs
+Conclusion
+
+These tasks are suitable for a junior Flutter developer because they provide practical experience with Flutter UI, Dart, API integration, form handling, navigation, testing, and debugging without requiring them to design the entire application architecture themselves.
