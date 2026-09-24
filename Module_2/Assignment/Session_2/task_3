@@ -1,0 +1,99 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MaterialApp(
+    home: ProductScreen(),
+  ));
+}
+
+class ProductScreen extends StatelessWidget {
+  const ProductScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Flipkart Products"),
+      ),
+
+      body: ListView(
+        children: [
+          ProductCard(
+            image: "https://via.placeholder.com/150",
+            name: "Smartphone",
+            price: "₹15,999",
+          ),
+
+          ProductCard(
+            image: "https://via.placeholder.com/150",
+            name: "Laptop",
+            price: "₹45,999",
+          ),
+
+          ProductCard(
+            image: "https://via.placeholder.com/150",
+            name: "Headphones",
+            price: "₹1,999",
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class ProductCard extends StatelessWidget {
+  final String image;
+  final String name;
+  final String price;
+
+  const ProductCard({
+    super.key,
+    required this.image,
+    required this.name,
+    required this.price,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      margin: const EdgeInsets.all(10),
+      child: Padding(
+        padding: const EdgeInsets.all(10),
+
+        child: Column(
+          children: [
+            Image.network(
+              image,
+              height: 150,
+              width: 150,
+            ),
+
+            const SizedBox(height: 10),
+
+            Text(
+              name,
+              style: const TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+
+            Text(
+              price,
+              style: const TextStyle(
+                fontSize: 18,
+              ),
+            ),
+
+            const SizedBox(height: 10),
+
+            ElevatedButton(
+              onPressed: () {},
+              child: const Text("Buy"),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
