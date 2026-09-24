@@ -1,0 +1,19 @@
+Scaffold
+   │
+   └── Column
+       │
+       └── Card
+           │
+           └── Column
+               │
+               ├── Image
+               │
+               ├── Text (Movie Name)
+               │
+               ├── Text (Date & Time)
+               │
+               ├── Row
+               │   ├── Text (Seat)
+               │   └── Text (Screen)
+               │
+               └── ElevatedButton (Download Ticket)
