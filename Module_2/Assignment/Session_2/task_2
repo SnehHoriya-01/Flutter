@@ -1,0 +1,44 @@
+import 'package:flutter/material.dart';
+
+class MusicCard extends StatelessWidget {
+  final String songName;
+  final String artistName;
+
+  const MusicCard({
+    super.key,
+    required this.songName,
+    required this.artistName,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      margin: const EdgeInsets.all(10),
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          children: [
+            const Icon(
+              Icons.music_note,
+              size: 50,
+            ),
+            const SizedBox(height: 10),
+            Text(
+              songName,
+              style: const TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            Text(
+              artistName,
+              style: const TextStyle(
+                fontSize: 16,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
