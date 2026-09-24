@@ -1,0 +1,31 @@
+### Feature Request: Save Restaurants for Later
+
+I would like to add a **“Save Restaurant”** feature to the Zomato app. Users should be able to tap a bookmark icon on a restaurant and save it to a personal “Saved Restaurants” list. Users can later open this list and quickly find restaurants they are interested in ordering from or visiting.
+
+### Team Members Involved
+
+**1. Designer**
+
+* Designs the bookmark/save button.
+* Designs the Saved Restaurants screen.
+* Creates the user flow for saving and removing restaurants.
+
+**2. Backend/API Developer**
+
+* Creates APIs to save and remove restaurants.
+* Stores the user's saved restaurants in the database.
+* Creates an API to retrieve the user's saved restaurant list.
+
+**3. Mobile Developer**
+
+* Adds the bookmark button to restaurant screens.
+* Builds the Saved Restaurants screen in Flutter.
+* Connects the mobile app to the backend APIs.
+* Handles loading, error, and empty-list states.
+
+**4. Tester/QA**
+
+* Checks whether restaurants can be saved and removed correctly.
+* Tests the feature with different user accounts.
+* Checks the feature on different devices and screen sizes.
+* Tests cases such as no internet connection and an empty saved list.
