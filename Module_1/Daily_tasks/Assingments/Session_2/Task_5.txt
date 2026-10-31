@@ -1,0 +1,5 @@
+1. A real device provides a more accurate view of the app's performance, while an emulator is convenient for quick testing
+
+2. Testing on a real device ensures that features like the camera, GPS, and sensors function correctly.
+
+3. Developers often use the emulator for rapid debugging and a real device to verify the final user experience and hardware compatibility.
