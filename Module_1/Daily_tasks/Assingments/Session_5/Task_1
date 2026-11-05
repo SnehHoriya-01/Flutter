@@ -1,0 +1,22 @@
+import 'package:flutter/material.dart';
+
+class MyCoolApp  extends StatelessWidget {
+  const MyCoolApp ({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text("My Profile"),),
+      body: Center(
+        child: Column(
+          children: [
+            ElevatedButton(onPressed: () {
+              Navigator.pushNamed(context, '/profile');
+            }, child: Text("Home"))
+          ]
+
+        )
+      ),
+    );
+  }
+}
