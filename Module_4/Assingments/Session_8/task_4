@@ -1,0 +1,257 @@
+import 'package:flutter/material.dart';
+
+class DashboardScreen extends StatefulWidget {
+  const DashboardScreen({super.key});
+
+  @override
+  State<DashboardScreen> createState() => _DashboardScreenState();
+}
+
+class _DashboardScreenState extends State<DashboardScreen> {
+  int _selectedIndex = 0;
+
+  final List<Map<String, String>> restaurants = [
+    {
+      "name": "Pizza Palace",
+      "cuisine": "Italian",
+      "rating": "4.8",
+    },
+    {
+      "name": "Spice Villa",
+      "cuisine": "Indian",
+      "rating": "4.6",
+    },
+    {
+      "name": "Burger House",
+      "cuisine": "Fast Food",
+      "rating": "4.5",
+    },
+    {
+      "name": "Dragon Wok",
+      "cuisine": "Chinese",
+      "rating": "4.7",
+    },
+    {
+      "name": "Sushi World",
+      "cuisine": "Japanese",
+      "rating": "4.9",
+    },
+  ];
+
+  Widget homeScreen() {
+    return ListView.builder(
+      itemCount: restaurants.length,
+      itemBuilder: (context, index) {
+        return ListTile(
+          leading: const Icon(Icons.restaurant),
+          title: Text(restaurants[index]["name"]!),
+          subtitle: Text(restaurants[index]["cuisine"]!),
+          trailing: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const Icon(
+                Icons.star,
+                color: Colors.orange,
+                size: 18,
+              ),
+              Text(restaurants[index]["rating"]!),
+            ],
+          ),
+
+          // Gesture Handler
+          onTap: () {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(
+                  "Selected Restaurant: ${restaurants[index]["name"]}",
+                ),
+                duration: const Duration(seconds: 2),
+              ),
+            );
+          },
+        );
+      },
+    );
+  }
+
+  Widget ordersScreen() {
+    return const Center(
+      child: Text(
+        "Orders Screen",
+        style: TextStyle(fontSize: 22),
+      ),
+    );
+  }
+
+  Widget profileScreen() {
+    return const Center(
+      child: Text(
+        "Profile Screen",
+        style: TextStyle(fontSize: 22),
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    Widget currentScreen;
+
+    if (_selectedIndex == 0) {
+      currentScreen = homeScreen();
+    } else if (_selectedIndex == 1) {
+      currentScreen = ordersScreen();
+    } else {
+      currentScreen = profileScreen();
+    }
+
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Food Delivery"),
+      ),
+
+      // Side Drawer
+      drawer: Drawer(
+        child: ListView(
+          children: [
+            const DrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.orange,
+              ),
+              child: Center(
+                child: Text(
+                  "Menu",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 24,
+                  ),
+                ),
+              ),
+            ),
+
+            ListTile(
+              leading: const Icon(Icons.account_balance_wallet),
+              title: const Text("My Wallet"),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const WalletScreen(),
+                  ),
+                );
+              },
+            ),
+
+            ListTile(
+              leading: const Icon(Icons.local_offer),
+              title: const Text("Offers"),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const OffersScreen(),
+                  ),
+                );
+              },
+            ),
+
+            ListTile(
+              leading: const Icon(Icons.settings),
+              title: const Text("Settings"),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const SettingsScreen(),
+                  ),
+                );
+              },
+            ),
+          ],
+        ),
+      ),
+
+      body: currentScreen,
+
+      // Bottom Navigation Bar
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _selectedIndex,
+        onTap: (value) {
+          setState(() {
+            _selectedIndex = value;
+          });
+        },
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: "Home",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.shopping_bag),
+            label: "Orders",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: "Profile",
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class WalletScreen extends StatelessWidget {
+  const WalletScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("My Wallet"),
+      ),
+      body: const Center(
+        child: Text(
+          "My Wallet Screen",
+          style: TextStyle(fontSize: 22),
+        ),
+      ),
+    );
+  }
+}
+
+class OffersScreen extends StatelessWidget {
+  const OffersScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Offers"),
+      ),
+      body: const Center(
+        child: Text(
+          "Offers Screen",
+          style: TextStyle(fontSize: 22),
+        ),
+      ),
+    );
+  }
+}
+
+class SettingsScreen extends StatelessWidget {
+  const SettingsScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Settings"),
+      ),
+      body: const Center(
+        child: Text(
+          "Settings Screen",
+          style: TextStyle(fontSize: 22),
+        ),
+      ),
+    );
+  }
+}
