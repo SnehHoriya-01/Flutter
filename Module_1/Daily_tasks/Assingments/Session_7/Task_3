@@ -1,0 +1,46 @@
+import 'package:flutter/material.dart';
+
+class count extends StatefulWidget {
+  const count({super.key});
+
+  @override
+  State<count> createState() => _countState();
+}
+
+class _countState extends State<count> {
+  var value = true;
+  String val = "Follow";
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text("Screen 1"), foregroundColor: Colors.blue,),
+      body: SingleChildScrollView(
+
+          child: Row
+            (
+            children:
+            [
+
+              ElevatedButton(onPressed: () {
+                setState(() {
+                  value != value;
+                });
+                value? val="Following" : val="Follow";
+              }, child: Text(val), style: ElevatedButton.styleFrom(backgroundColor: Colors.blue),)
+              /*Image.asset("asset/ITACHI-2.png", height: 200, width: 200,),
+              //SizedBox(height: 20,),
+              Text("Itahi Image", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.red),),
+              Image.asset("asset/haikyuu!.jpg", height: 200, width: 200,),
+              SizedBox(height: 20,),
+              Text("Itahi Image", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.red),),
+
+              Image.network("https://i.ytimg.com/vi/aXBYM-Af9Q8/hq720.jpg?sqp=-oaymwE7CK4FEIIDSFryq4qpAy0IARUAAAAAGAElAADIQj0AgKJD8AEB-AH-CYAC0AWKAgwIABABGEkgSChZMA8=&rs=AOn4CLCsIzYMLXaTWJ5RUsrO9rciokQoIw",height: 200, width: 200,),
+              SizedBox(height: 20,),
+              Text("Itahi Image", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.red),),*/
+            ],
+          )
+      ),
+
+    );
+  }
+}
