@@ -1,0 +1,56 @@
+import 'package:flutter/material.dart';
+
+class ChatScreen extends StatelessWidget {
+  const ChatScreen({super.key});
+
+  final List<Map<String, String>> chats = const [
+    {"sender": "yogesh", "message": "Hey! How are you?"},
+    {"sender": "maldev", "message": "Let's meet tomorrow."},
+    {"sender": "nayan", "message": "Did you finish the project?"},
+    {"sender": "bhavik", "message": "Call me when you're free."},
+    {"sender": "krish", "message": "See you soon!"},
+    {"sender": "pruthvij", "message": "Thanks for your help."},
+    {"sender": "sneh", "message": "Good morning!"},
+    {"sender": "devang", "message": "Check your email."},
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Chats"),
+      ),
+      body: ListView.separated(
+        itemCount: chats.length,
+
+        // Grey divider between chats
+        separatorBuilder: (context, index) => Divider(
+          color: Colors.grey.shade300,
+          thickness: 1,
+          indent: 72,
+          endIndent: 16,
+        ),
+
+        itemBuilder: (context, index) {
+          return ListTile(
+            leading: CircleAvatar(
+              backgroundColor: Colors.blue,
+              child: Text(
+                chats[index]["sender"]![0],
+                style: const TextStyle(color: Colors.white),
+              ),
+            ),
+            title: Text(
+              chats[index]["sender"]!,
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            subtitle: Text(chats[index]["message"]!),
+            trailing: const Icon(Icons.chevron_right),
+          );
+        },
+      ),
+    );
+  }
+}
