@@ -1,0 +1,83 @@
+import 'package:flutter/material.dart';
+
+class ProductListScreen extends StatelessWidget {
+  const ProductListScreen({super.key});
+
+  final List<Map<String, dynamic>> products = const [
+    {"category": "Mobiles", "name": "iPhone 15", "price": 79999},
+    {"category": "Mobiles", "name": "Samsung Galaxy S24", "price": 74999},
+    {"category": "Mobiles", "name": "OnePlus 12", "price": 64999},
+    {"category": "Laptops", "name": "MacBook Air M3", "price": 114999},
+    {"category": "Laptops", "name": "Dell Inspiron", "price": 58999},
+    {"category": "Laptops", "name": "HP Pavilion", "price": 54999},
+    {"category": "Headphones", "name": "AirPods Pro", "price": 24999},
+    {"category": "Headphones", "name": "Sony WH-1000XM5", "price": 29999},
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Flipkart Products"),
+        backgroundColor: Colors.blue,
+      ),
+      body: ListView.separated(
+        itemCount: products.length,
+
+        itemBuilder: (context, index) {
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              if (index == 0 ||
+                  products[index]["category"] !=
+                      products[index - 1]["category"])
+                Container(
+                  width: double.infinity,
+                  color: Colors.blue.shade100,
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 16,
+                    vertical: 8,
+                  ),
+                  child: Text(
+                    products[index]["category"],
+                    style: const TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+
+              Card(
+                margin: const EdgeInsets.symmetric(
+                  horizontal: 12,
+                  vertical: 6,
+                ),
+                child: ListTile(
+                  leading: const Icon(
+                    Icons.shopping_bag,
+                    color: Colors.blue,
+                  ),
+                  title: Text(products[index]["name"]),
+                  subtitle: Text("₹${products[index]["price"]}"),
+                ),
+              ),
+            ],
+          );
+        },
+
+        separatorBuilder: (context, index) {
+          bool categoryChanged =
+              products[index]["category"] !=
+              products[index + 1]["category"];
+
+          return Divider(
+            color: categoryChanged ? Colors.blue : Colors.grey.shade300,
+            thickness: categoryChanged ? 5 : 1,
+            indent: 12,
+            endIndent: 12,
+          );
+        },
+      ),
+    );
+  }
+}
