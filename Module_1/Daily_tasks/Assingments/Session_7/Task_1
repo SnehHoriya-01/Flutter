@@ -1,0 +1,29 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
+
+class screen1 extends StatelessWidget
+{
+  @override
+  Widget build(BuildContext context) {
+
+    return Scaffold(
+      appBar: AppBar(title: Text("Screen 1"), foregroundColor: Colors.blue,),
+      body: SingleChildScrollView(
+
+          child: Center
+          (
+            child: Column
+              (
+            children:
+            [
+              Text("Today's top Offers"),
+              ElevatedButton(onPressed: () {}, child: Text("View All Details"), style: ElevatedButton.styleFrom(backgroundColor: Colors.blue),)
+            ],
+            )
+          )
+        ),
+
+    );
+  }
+}
