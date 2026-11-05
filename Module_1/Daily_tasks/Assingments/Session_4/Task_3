@@ -1,0 +1,9 @@
+Error Message :-  cmdline-tools component is missing
+
+Official Flutter Documentation Solution:-
+
+The easiest way to get the cmdline-tools is through the SDK Manager in Android Studio. To do this, use the following instructions:
+
+1. Open the SDK Manager from Android Studio by selecting Tools > SDK Manager from the menu bar.
+2. Select the latest Android SDK (or a specific version that your app requires), Android SDK Command-line Tools, and Android SDK Build-Tools.
+3. Click Apply to install the selected artifacts.
