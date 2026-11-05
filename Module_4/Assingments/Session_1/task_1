@@ -1,0 +1,34 @@
+import 'package:flutter/material.dart';
+
+class task1 extends StatefulWidget {
+  const task1({super.key});
+
+  @override
+  State<task1> createState() => _task1State();
+}
+
+class _task1State extends State<task1> {
+
+  var teamname = ["RCB","CSK","MI","SRH","GT","DC","RR","KKR"];
+
+  @override
+  Widget build(BuildContext context) {
+    return
+      SingleChildScrollView(
+        child: Scaffold
+        (
+          appBar: AppBar(title: Text("IPL Teams"), centerTitle: true,),
+        
+          body: ListView.builder
+          (
+              itemBuilder: (context, index)
+              {
+                return ListTile(
+                  title: Text(teamname[index]),
+                );
+              }
+          ),
+        ),
+      );
+  }
+}
