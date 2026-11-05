@@ -1,0 +1,33 @@
+import 'package:flutter/material.dart';
+
+class count extends StatefulWidget {
+  const count({super.key});
+
+  @override
+  State<count> createState() => _countState();
+}
+
+class _countState extends State<count> {
+  var count = 0;
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text("Screen 1"), foregroundColor: Colors.blue,),
+      body: SingleChildScrollView(
+
+          child: Row
+            (
+            children:
+            [
+              Text(" Count : $count"),
+              ElevatedButton(onPressed: () { count++;}, child: Text("increase"), style: ElevatedButton.styleFrom(backgroundColor: Colors.blue),)
+              
+            ],
+          )
+      ),
+
+    );
+  }
+}
+
+error : I/gralloc4(24534): @set_metadata: update dataspace from GM (0x08010000 -> 0x00000000) it is finding the setstate to reload the value
