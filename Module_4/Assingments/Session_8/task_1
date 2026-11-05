@@ -1,0 +1,59 @@
+import 'package:flutter/material.dart';
+
+class DashboardScreen extends StatelessWidget {
+  const DashboardScreen({super.key});
+
+  final List<Map<String, dynamic>> restaurants = const [
+    {
+      "name": "Pizza Palace",
+      "cuisine": "Italian",
+      "rating": "4.8",
+    },
+    {
+      "name": "Spice Villa",
+      "cuisine": "Indian",
+      "rating": "4.6",
+    },
+    {
+      "name": "Burger House",
+      "cuisine": "Fast Food",
+      "rating": "4.5",
+    },
+    {
+      "name": "Dragon Wok",
+      "cuisine": "Chinese",
+      "rating": "4.7",
+    },
+    {
+      "name": "Sushi World",
+      "cuisine": "Japanese",
+      "rating": "4.9",
+    },
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Trending Restaurants"),
+      ),
+      body: ListView.builder(
+        itemCount: restaurants.length,
+        itemBuilder: (context, index) {
+          return ListTile(
+            leading: const Icon(Icons.restaurant),
+            title: Text(restaurants[index]["name"]),
+            subtitle: Text(restaurants[index]["cuisine"]),
+            trailing: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const Icon(Icons.star, color: Colors.orange, size: 18),
+                Text(restaurants[index]["rating"]),
+              ],
+            ),
+          );
+        },
+      ),
+    );
+  }
+}
