@@ -1,0 +1,87 @@
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
+    return DefaultTabController(
+      length: 3,
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(
+            "My App",
+            style: theme.textTheme.titleLarge,
+          ),
+          bottom: const TabBar(
+            tabs: [
+              Tab(text: "Trending"),
+              Tab(text: "Favorites"),
+              Tab(text: "Nearby"),
+            ],
+          ),
+        ),
+
+        drawer: Drawer(
+          child: ListView(
+            padding: const EdgeInsets.all(16),
+            children: [
+              UserAccountsDrawerHeader(
+                accountName: Text(
+                  "Yogesh",
+                  style: theme.textTheme.titleMedium,
+                ),
+                accountEmail: Text(
+                  "yogesh@gmail.com",
+                  style: theme.textTheme.bodyMedium,
+                ),
+                currentAccountPicture: CircleAvatar(
+                  child: Icon(
+                    Icons.person,
+                    color: theme.colorScheme.primary,
+                  ),
+                ),
+              ),
+
+              ListTile(
+                leading: Icon(
+                  Icons.home,
+                  color: theme.colorScheme.primary,
+                ),
+                title: Text(
+                  "Home",
+                  style: theme.textTheme.bodyLarge,
+                ),
+              ),
+
+              ListTile(
+                leading: Icon(
+                  Icons.person,
+                  color: theme.colorScheme.primary,
+                ),
+                title: Text(
+                  "Profile",
+                  style: theme.textTheme.bodyLarge,
+                ),
+              ),
+            ],
+          ),
+        ),
+
+        body: const TabBarView(
+          children: [
+            Center(
+              child: Text("Trending Content"),
+            ),
+            Center(
+              child: Text("Favorite Content"),
+            ),
+            Center(
+              child: Text("Nearby Content"),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
