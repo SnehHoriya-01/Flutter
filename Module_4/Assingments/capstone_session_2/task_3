@@ -1,0 +1,118 @@
+import 'package:flutter/material.dart';
+
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+
+    return DefaultTabController(
+      length: 3,
+
+      child: Scaffold(
+
+        appBar: AppBar(
+          title: const Text("My App"),
+
+          bottom: const TabBar(
+            tabs: [
+              Tab(text: "Trending"),
+              Tab(text: "Favorites"),
+              Tab(text: "Nearby"),
+            ],
+          ),
+        ),
+
+        drawer: Drawer(
+          child: ListView(
+            padding: const EdgeInsets.all(16),
+            children: [
+
+              const UserAccountsDrawerHeader(
+                accountName: Text("Yogesh",),
+                accountEmail: Text("yogesh@gmail.com",),
+
+                currentAccountPicture: CircleAvatar(
+                  child: Icon(Icons.person,size: 40,),
+                ),
+              ),
+              ListTile(
+                leading: const Icon(Icons.home),
+                title: const Text("Home"),
+                onTap: (){
+                  Navigator.pop(context);
+                },
+              ),
+              ListTile(
+                leading: const Icon(Icons.person),
+                title: const Text("Profile"),
+                onTap: (){
+                  Navigator.pop(context);
+                },
+              ),
+              ListTile(
+                leading: const Icon(Icons.settings),
+                title: const Text("Settings"),
+                onTap: (){
+                  Navigator.pop(context);
+                },
+              ),
+              ListTile(
+                leading: const Icon(Icons.logout),
+                title: const Text("Logout"),
+                onTap: (){
+                  Navigator.pop(context);
+                },
+              ),
+            ],
+          ),
+        ),
+
+        body: const TabBarView(
+          children: [
+
+            Padding(
+              padding: EdgeInsets.all(16),
+              child: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(Icons.trending_up,size: 60,),
+                    SizedBox(height: 10),
+                    Text("Trending Content",style: TextStyle(fontSize: 18),),
+                  ],
+                ),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.all(16),
+              child: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(Icons.favorite,size: 60,),
+                    SizedBox(height: 10),
+                    Text("Favorite Content",style: TextStyle(fontSize: 18),),
+                  ],
+                ),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.all(16),
+              child: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(Icons.location_on,size: 60,),
+                    SizedBox(height: 10),
+                    Text("Nearby Content",style: TextStyle(fontSize: 18),                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
