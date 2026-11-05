@@ -1,0 +1,80 @@
+import 'package:flutter/material.dart';
+
+class PlaylistScreen extends StatefulWidget {
+  const PlaylistScreen({super.key});
+
+  @override
+  State<PlaylistScreen> createState() => _PlaylistScreenState();
+}
+
+class _PlaylistScreenState extends State<PlaylistScreen>
+    with AutomaticKeepAliveClientMixin {
+  @override
+  bool get wantKeepAlive => true;
+
+  final List<String> myPlaylists = [
+    "Morning Vibes",
+    "Workout Mix",
+    "Chill Songs",
+    "Road Trip",
+    "Party Hits",
+    "Focus Beats",
+    "Classic Hits",
+    "Relax Music",
+    "Top 50",
+    "Daily Mix",
+  ];
+
+  final List<String> likedSongs = [
+    "Perfect",
+    "Believer",
+    "Levitating",
+    "Shape of You",
+    "Blinding Lights",
+    "Stay",
+    "Peaches",
+    "Memories",
+    "Bad Habits",
+    "Someone You Loved",
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    super.build(context);
+
+    return DefaultTabController(
+      length: 2,
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text("Playlist"),
+          bottom: const TabBar(
+            tabs: [
+              Tab(text: "My Playlists"),
+              Tab(text: "Liked Songs"),
+            ],
+          ),
+        ),
+        body: TabBarView(
+          children: [
+            ListView.builder(
+              itemCount: myPlaylists.length,
+              itemBuilder: (context, index) {
+                return ListTile(
+                  title: Text(myPlaylists[index]),
+                );
+              },
+            ),
+            ListView.builder(
+              itemCount: likedSongs.length,
+              itemBuilder: (context, index) {
+                return ListTile(
+                  title: Text(likedSongs[index]),
+                );
+              },
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
