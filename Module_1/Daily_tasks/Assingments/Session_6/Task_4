@@ -1,0 +1,2 @@
+Hot Reload refreshes the UI while keeping the current app state.
+Hot Restart restarts the app completely and clears the current app state.
