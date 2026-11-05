@@ -1,0 +1,166 @@
+import 'package:flutter/material.dart';
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'IPL Teams',
+      home: const IPLTeamsScreen(),
+    );
+  }
+}
+
+class IPLTeamsScreen extends StatelessWidget {
+  const IPLTeamsScreen({super.key});
+
+  final List<Map<String, String>> teams = const [
+    {
+      "name": "Chennai Super Kings",
+      "logo":"https://via.placeholder.com/150?text=CSK",
+    },
+    {
+      "name": "Mumbai Indians",
+      "logo":"https://via.placeholder.com/150?text=MI",
+    },
+    {
+      "name": "Royal Challengers Bengaluru",
+      "logo":"https://via.placeholder.com/150?text=RCB",
+    },
+    {
+      "name": "Kolkata Knight Riders",
+      "logo":"https://via.placeholder.com/150?text=KKR",
+    },
+    {
+      "name": "Sunrisers Hyderabad",
+      "logo":"https://via.placeholder.com/150?text=SRH",
+    },
+    {
+      "name": "Rajasthan Royals",
+      "logo":"https://via.placeholder.com/150?text=RR",
+    },
+    {
+      "name": "Delhi Capitals",
+      "logo":"https://via.placeholder.com/150?text=DC",
+    },
+    {
+      "name": "Punjab Kings",
+      "logo":"https://via.placeholder.com/150?text=PBKS",
+    },
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("IPL Teams"),
+        centerTitle: true,
+      ),
+      body: GridView.builder(
+        padding: const EdgeInsets.all(12),
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          crossAxisSpacing: 12,
+          mainAxisSpacing: 12,
+          childAspectRatio: 0.9,
+        ),
+        itemCount: teams.length,
+        itemBuilder: (context, index) {
+          return InkWell(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (_) => TeamDetailsScreen(
+                    teamName: teams[index]["name"]!,
+                  ),
+                ),
+              );
+            },
+            child: Card(
+              elevation: 4,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(12),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    CircleAvatar(
+                      radius: 40,
+                      backgroundImage:
+                          NetworkImage(teams[index]["logo"]!),
+                    ),
+                    const SizedBox(height: 12),
+                    Text(
+                      teams[index]["name"]!,
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          );
+        },
+      ),
+    );
+  }
+}
+
+class TeamDetailsScreen extends StatelessWidget {
+  final String teamName;
+
+  const TeamDetailsScreen({
+    super.key,
+    required this.teamName,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(teamName),
+      ),
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(20),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                teamName,
+                style: const TextStyle(
+                  fontSize: 28,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const SizedBox(height: 20),
+              const Text(
+                "Team Details",
+                style: TextStyle(
+                  fontSize: 22,
+                  color: Colors.blue,
+                ),
+              ),
+              const SizedBox(height: 10),
+              const Text(
+                "This is a placeholder for team details.\n"
+                "You can display captain, coach, home ground,\n"
+                "trophies won, squad, and other information here.",
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 16),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
