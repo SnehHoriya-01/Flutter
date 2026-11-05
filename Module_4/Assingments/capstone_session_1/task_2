@@ -1,0 +1,57 @@
+class HomePage extends StatelessWidget {
+  const HomePage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final List<Map<String, dynamic>> services = [
+      {
+        "icon": Icons.delivery_dining,
+        "name": "Food Delivery",
+      },
+      {
+        "icon": Icons.movie,
+        "name": "Movie Tickets",
+      },
+      {
+        "icon": Icons.phone_android,
+        "name": "Mobile Recharge",
+      },
+      {
+        "icon": Icons.train,
+        "name": "Train Booking",
+      },
+      {
+        "icon": Icons.sports_cricket,
+        "name": "IPL Fantasy",
+      },
+    ];
+
+    return ListView.builder(
+      padding: const EdgeInsets.all(12),
+      itemCount: services.length,
+      itemBuilder: (context, index) {
+        return Card(
+          elevation: 1,
+          margin: const EdgeInsets.only(bottom: 10),
+          child: ListTile(
+            leading: CircleAvatar(
+              backgroundColor: Colors.blue.shade100,
+              child: Icon(
+                services[index]["icon"],
+                color: Colors.blue,
+              ),
+            ),
+            title: Text(
+              services[index]["name"],
+              style: const TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+            trailing: const Icon(Icons.arrow_forward_ios, size: 16),
+          ),
+        );
+      },
+    );
+  }
+}
