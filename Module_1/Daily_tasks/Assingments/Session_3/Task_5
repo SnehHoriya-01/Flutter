@@ -1,0 +1,18 @@
+Error :-  Android license status unknown.
+
+Solution :- 
+I shared the above error with ChatGPT. ChatGPT explained that Flutter could not verify whether the Android SDK licenses had been accepted and recommended running:
+
+flutter doctor --android-licenses
+
+I accepted all the Android SDK license agreements and then ran:
+
+flutter doctor
+
+again to verify the fix.
+
+Summary (2–3 lines)
+
+I used ChatGPT to troubleshoot the "Android license status unknown" error that appeared in flutter doctor. 
+ChatGPT guided me to run flutter doctor --android-licenses and accept all the Android SDK licenses. 
+After following these steps and rerunning flutter doctor, the warning was resolved and my Flutter environment was correctly configured.
