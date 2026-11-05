@@ -1,0 +1,55 @@
+import 'package:flutter/material.dart';
+
+class PlaylistScreen extends StatelessWidget {
+  const PlaylistScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final myPlaylists = [
+      "Morning Vibes",
+      "Workout Mix",
+      "Chill Songs",
+    ];
+
+    final likedSongs = [
+      "Perfect",
+      "Believer",
+      "Levitating",
+    ];
+
+    return DefaultTabController(
+      length: 2,
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text("Playlist"),
+          bottom: const TabBar(
+            tabs: [
+              Tab(text: "My Playlists"),
+              Tab(text: "Liked Songs"),
+            ],
+          ),
+        ),
+        body: TabBarView(
+          children: [
+            ListView.builder(
+              itemCount: myPlaylists.length,
+              itemBuilder: (context, index) {
+                return ListTile(
+                  title: Text(myPlaylists[index]),
+                );
+              },
+            ),
+            ListView.builder(
+              itemCount: likedSongs.length,
+              itemBuilder: (context, index) {
+                return ListTile(
+                  title: Text(likedSongs[index]),
+                );
+              },
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
