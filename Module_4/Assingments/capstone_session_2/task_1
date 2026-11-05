@@ -1,0 +1,71 @@
+import 'package:flutter/material.dart';
+
+class HomeScreen extends StatelessWidget {
+   HomeScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title:  Text("Home"),
+      ),
+
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            UserAccountsDrawerHeader(
+              accountName:  Text("Yogesh"),
+              accountEmail:  Text("yogesh@gmail.com"),
+              currentAccountPicture:  CircleAvatar(
+                child: Icon(
+                  Icons.person,
+                  size: 40,
+                ),
+              ),
+            ),
+
+            ListTile(
+              leading:  Icon(Icons.home),
+              title:  Text("Home"),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+
+            ListTile(
+              leading:  Icon(Icons.person),
+              title:  Text("Profile"),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+
+            ListTile(
+              leading:  Icon(Icons.settings),
+              title:  Text("Settings"),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+
+            ListTile(
+              leading:  Icon(Icons.logout),
+              title:  Text("Logout"),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+          ],
+        ),
+      ),
+
+      body: Center(
+        child: Text(
+          "Navigation Drawer Example",
+          style: TextStyle(fontSize: 20),
+        ),
+      ),
+    );
+  }
+}
