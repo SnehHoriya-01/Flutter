@@ -1,0 +1,14 @@
+1.Check Flutter installation
+
+Run flutter --version in the terminal  :-  Flutter displays the installed Flutter SDK version, Dart version, and 
+                                           channel (e.g., Stable), confirming that Flutter is installed and added to the system PATH.
+
+2. Check environment configuration
+
+Run flutter doctor  :-  Flutter displays a report with green check marks (✓) for Flutter, Android toolchain, Android Studio, connected 
+                        devices, and other required components. Any missing components or issues are shown with warnings or errors.
+
+3. Verify connected devices
+
+Run flutter devices  :-  Flutter lists all connected physical devices, emulators, or desktop devices available for running Flutter 
+                         applications. If a device is detected, it will appear with its name and platform.
