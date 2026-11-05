@@ -1,0 +1,37 @@
+import 'package:flutter/material.dart';
+import 'package:insta_clone/user_profile.dart';
+
+void main() {
+  runApp(MaterialApp(home: mini()));
+
+}
+class mini extends StatefulWidget {
+  const mini({super.key});
+
+  @override
+  State<mini> createState() => _miniState();
+}
+
+class _miniState extends State<mini> {
+  
+  
+  @override
+  Widget build(BuildContext context) {
+    return Form(
+      
+        child: Scaffold(
+          appBar: AppBar(title: Text("Followers: "), foregroundColor: Colors.blue,),
+          body: Center(
+         child: Column(
+           children: [
+             formatFollowers(5000)
+           ],
+         ),
+          ],
+        ),
+      )
+
+    );
+  }
+  formatFollowers  (var num) => num < 1000 ? print("Your Formatted Followers are ${num}") : num >= 1000 && num < 1000000 ? print("Your Formatted Followers are ${num/1000}K") : num >= 1000000 ? print("Your Formatted Followers are ${num/1000000}M") : num.toString();
+}
