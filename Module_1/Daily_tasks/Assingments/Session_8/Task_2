@@ -1,0 +1,21 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MaterialApp(home: mini()));
+}
+
+class mini extends StatelessWidget
+{
+  @override
+  Widget build(BuildContext context) {
+
+    return Scaffold(
+      appBar: AppBar(title: Text("Mini Instagram"), foregroundColor: Colors.blue,),
+      body: Center(
+        child: Text("Welcome to Mini Insagram!"),
+      )
+
+
+    );
+  }
+}
