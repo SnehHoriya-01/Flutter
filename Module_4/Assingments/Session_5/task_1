@@ -1,0 +1,62 @@
+import 'package:flutter/material.dart';
+
+class MusicHome extends StatefulWidget {
+  const MusicHome({super.key});
+
+  @override
+  State<MusicHome> createState() => _MusicHomeState();
+}
+
+class _MusicHomeState extends State<MusicHome> {
+
+  int index = 0;
+
+  final tabs = [
+    "Songs",
+    "Albums",
+    "Profile",
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+
+      body: Center(
+        child: Text(
+          tabs[index],
+          style: const TextStyle(fontSize: 25),
+        ),
+      ),
+
+      bottomNavigationBar: BottomNavigationBar(
+
+        currentIndex: index,
+
+        onTap: (value) {
+          setState(() {
+            index = value;
+          });
+        },
+
+        items: [
+
+          BottomNavigationBarItem(
+            icon: Icon(Icons.music_note),
+            label: "Songs",
+          ),
+
+          BottomNavigationBarItem(
+            icon: Icon(Icons.album),
+            label: "Albums",
+          ),
+
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: "Profile",
+          ),
+
+        ],
+      ),
+    );
+  }
+}
